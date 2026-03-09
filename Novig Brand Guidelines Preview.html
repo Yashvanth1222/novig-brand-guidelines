@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Novig Brand Guidelines</title>
+  <style>
+    @font-face {
+      font-family: 'ABCMonumentGrotesk';
+      src: url('ABCMonumentGrotesk-Regular.woff') format('woff');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'ABCMonumentGrotesk';
+      src: url('ABCMonumentGrotesk-Medium.woff') format('woff');
+      font-weight: 500;
+    }
+    @font-face {
+      font-family: 'ABCMonumentGrotesk';
+      src: url('ABCMonumentGrotesk-Bold.woff') format('woff');
+      font-weight: 700;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #179BE7;
+      --black: #000000;
+      --white: #FFFFFF;
+      --gray-100: #F5F5F5;
+      --gray-200: #E8E8E8;
+      --gray-500: #888888;
+      --sidebar-width: 240px;
+    }
+
+    body {
+      font-family: 'ABCMonumentGrotesk', sans-serif;
+      font-weight: 400;
+      background: var(--white);
+      color: var(--black);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ── */
+    nav {
+      width: var(--sidebar-width);
+      min-height: 100vh;
+      background: var(--black);
+      position: fixed;
+      top: 0; left: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 24px;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .nav-subtitle {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--gray-500);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    nav a {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-500);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid #1a1a1a;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--white); }
+    nav a.active { color: var(--blue); }
+
+    .nav-spacer { flex: 1; }
+
+    .nav-version {
+      font-size: 11px;
+      color: #444;
+      margin-top: 24px;
+    }
+
+    /* ── Main Content ── */
+    main {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      padding: 0;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--black);
+      padding: 100px 64px;
+      border-bottom: 1px solid #111;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span { color: var(--blue); }
+
+    .hero p {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray-500);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 80px 64px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      color: var(--black);
+    }
+
+    section p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #333;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    /* ── About ── */
+    .about-card {
+      background: var(--black);
+      border-radius: 16px;
+      padding: 48px;
+      max-width: 720px;
+    }
+
+    .about-card p {
+      font-size: 18px;
+      color: var(--white);
+      line-height: 1.7;
+      max-width: 100%;
+      margin-bottom: 32px;
+    }
+
+    .about-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'ABCMonumentGrotesk', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.85; }
+    .btn-blue { background: var(--blue); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid #333; }
+    .btn-outline-dark { background: transparent; color: var(--black); border: 1.5px solid #222; }
+
+    /* ── Logo Grid ── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo-card {
+      border-radius: 12px;
+      padding: 40px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-card.dark { background: var(--black); }
+    .logo-card.light { background: var(--gray-100); border: 1px solid var(--gray-200); }
+    .logo-card.blue-bg { background: var(--blue); }
+
+    .logo-placeholder {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+    }
+
+    .logo-text-white {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.06em;
+    }
+
+    .logo-text-black {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.06em;
+    }
+
+    .logo-text-blue {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.06em;
+    }
+
+    .logo-card-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray-500);
+      text-align: center;
+    }
+
+    .logo-card.dark .logo-card-label { color: #555; }
+
+    .logo-rule {
+      background: #F8F4FF;
+      border-left: 3px solid var(--blue);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+      max-width: 640px;
+    }
+
+    /* ── Color Palette ── */
+    .color-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .color-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      width: 200px;
+    }
+
+    .color-swatch {
+      height: 120px;
+      width: 100%;
+    }
+
+    .color-info {
+      padding: 16px;
+      background: var(--white);
+    }
+
+    .color-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .color-hex {
+      font-size: 13px;
+      color: var(--gray-500);
+      font-weight: 400;
+      margin-bottom: 2px;
+    }
+
+    .color-rgb {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    /* ── Typography ── */
+    .type-showcase {
+      background: var(--gray-100);
+      border-radius: 16px;
+      padding: 48px;
+      margin-bottom: 32px;
+    }
+
+    .type-row {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: baseline;
+      gap: 32px;
+    }
+
+    .type-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .type-meta {
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    .type-weight-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .type-usage {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 4px;
+    }
+
+    .type-sample-regular { font-size: 32px; font-weight: 400; }
+    .type-sample-medium  { font-size: 32px; font-weight: 500; }
+    .type-sample-bold    { font-size: 32px; font-weight: 700; }
+
+    /* ── Video Overlays ── */
+    .overlay-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .overlay-card {
+      background: var(--black);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overlay-card.vertical { aspect-ratio: 9/16; max-width: 200px; }
+    .overlay-card.horizontal { aspect-ratio: 16/9; }
+
+    .overlay-wordmark {
+      position: absolute;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+    }
+
+    .overlay-wordmark.top-left { top: 16px; left: 16px; }
+    .overlay-wordmark.top-right { top: 16px; right: 16px; }
+
+    .overlay-label {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .overlay-group { display: flex; flex-direction: column; gap: 8px; }
+    .overlay-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+
+    /* ── Terminology Table ── */
+    table {
+      width: 100%;
+      max-width: 640px;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+
+    th {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-500);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--gray-200);
+    }
+
+    td {
+      padding: 14px 16px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: middle;
+    }
+
+    .dont {
+      color: #CC3333;
+      font-weight: 500;
+      text-decoration: line-through;
+      text-decoration-color: #CC3333;
+    }
+
+    .do {
+      color: #1A7A3C;
+      font-weight: 600;
+    }
+
+    /* ── Assets ── */
+    .asset-card {
+      background: var(--black);
+      border-radius: 16px;
+      padding: 40px 48px;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .asset-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .asset-card p {
+      font-size: 14px;
+      color: var(--gray-500);
+      max-width: 100%;
+      margin: 0;
+    }
+
+    .asset-pw {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .asset-pw span {
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    /* ── Talking Points ── */
+    .tp-group {
+      background: var(--gray-100);
+      border-radius: 16px;
+      padding: 32px 40px;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+
+    .tp-group-dark {
+      background: var(--black);
+    }
+
+    .tp-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-500);
+      margin-bottom: 20px;
+    }
+
+    .tp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .tp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #222;
+      max-width: 100%;
+    }
+
+    .tp-item-dark {
+      color: #ccc;
+    }
+
+    .tp-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ── App Tiles ── */
+    .app-tile {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 10px 16px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      min-width: 160px;
+    }
+
+    .app-tile:hover { border-color: var(--blue); background: #1a1a1a; }
+
+    .app-tile-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .app-tile-text { display: flex; flex-direction: column; gap: 2px; }
+
+    .app-tile-sub {
+      font-size: 10px;
+      font-weight: 400;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .app-tile-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    /* ── Trades ── */
+    .trades-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 720px;
+      margin-top: 32px;
+    }
+
+    .trade-card {
+      background: var(--black);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .trade-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.1em;
+    }
+
+    .trade-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .trade-desc {
+      font-size: 13px;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* ── Safe Zone Tables ── */
+    .sz-table-wrap {
+      overflow-x: auto;
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .sz-table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .sz-table th {
+      background: var(--black);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 12px 16px;
+      border-bottom: none;
+      text-align: left;
+    }
+
+    .sz-table td {
+      padding: 14px 16px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .sz-table tr:last-child td { border-bottom: none; }
+    .sz-table tr:nth-child(even) td { background: #fafafa; }
+
+    .sz-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .sz-dl {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .sz-dl:hover { text-decoration: underline; }
+
+    /* ── Legal ── */
+    .legal-card {
+      background: var(--gray-100);
+      border-radius: 16px;
+      padding: 32px 40px;
+      margin-bottom: 20px;
+      max-width: 720px;
+      border-left: 3px solid var(--blue);
+    }
+
+    .legal-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+
+    .legal-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #333;
+      max-width: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <nav>
+    <img src="assets/logo-wordmark/logo-wordmark-blue.png" alt="Novig" style="width:100%; max-width:160px; margin-bottom:8px; object-fit:contain;"/>
+    <div class="nav-subtitle">Brand Guidelines</div>
+    <a href="#about" class="active">About</a>
+    <a href="#logo">Logo</a>
+    <a href="#colors">Colors</a>
+    <a href="#overlays">Video Overlays</a>
+    <a href="#typography">Typography</a>
+    <a href="#language">Language & Terminology</a>
+    <a href="#tone">Brand Tone</a>
+    <a href="#advantage">The Novig Advantage</a>
+    <a href="#trades">Types of Trades</a>
+    <a href="#marketplace">Two-Sided Marketplace</a>
+    <a href="#coins">Novig Coins & Cash</a>
+    <a href="#legal">Legal Disclaimers</a>
+    <div class="nav-spacer"></div>
+    <div class="nav-version">2026 Brand Guidelines</div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-label">01 — About</div>
+      <h2>About Novig</h2>
+      <div class="about-card">
+        <p>Novig is a commission-free, peer-to-peer sports exchange. Instead of betting against the house, users trade directly with one another on a transparent exchange with fair odds, no hidden vig, and no limits for winning.</p>
+      </div>
+
+      <div class="about-links" style="margin-top: 32px;">
+
+        <!-- novig.com tile -->
+        <a href="https://novig.com" class="app-tile" target="_blank" rel="noopener">
+          <div class="app-tile-icon" style="background: var(--blue);">
+            <img src="assets/logo/logo-black.png" alt="Novig" style="width:36px; height:36px; object-fit:contain;"/>
+          </div>
+          <div class="app-tile-text">
+            <div class="app-tile-sub">Visit us at</div>
+            <div class="app-tile-name">novig.com</div>
+          </div>
+        </a>
+
+        <!-- App Store -->
+        <a href="https://apps.apple.com/us/app/novig/id6443958997" class="app-tile" target="_blank" rel="noopener">
+          <div class="app-tile-icon" style="background: #000;">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.18 1.27-2.16 3.8.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.37 2.78M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+          </div>
+          <div class="app-tile-text">
+            <div class="app-tile-sub">Download on the</div>
+            <div class="app-tile-name">App Store</div>
+          </div>
+        </a>
+
+        <!-- Google Play -->
+        <a href="https://play.google.com/store/apps/details?id=us.novig.app&hl=en_US" class="app-tile" target="_blank" rel="noopener">
+          <div class="app-tile-icon" style="background: #000;">
+            <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.18 23.76c.3.17.64.22.98.15l12.09-12.09L12.36 8l-9.18 15.18v.58z" fill="#EA4335"/>
+              <path d="M20.65 10.43l-2.71-1.55-3.48 3.48 3.48 3.48 2.74-1.57c.78-.45.78-1.39-.03-1.84z" fill="#FBBC04"/>
+              <path d="M3.18.24C2.87.42 2.67.76 2.67 1.2v21.6c0 .44.2.78.51.96l12.09-12.09L3.18.24z" fill="#4285F4"/>
+              <path d="M4.16.09l12.09 11.67 3.39-3.39L6.87-.06C6.19-.44 5.13-.28 4.16.09z" fill="#34A853"/>
+            </svg>
+          </div>
+          <div class="app-tile-text">
+            <div class="app-tile-sub">Get it on</div>
+            <div class="app-tile-name">Google Play</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Logo -->
+    <section id="logo">
+      <div class="section-label">02 — Logo</div>
+      <h2>Logo System</h2>
+      <p>Novig's logo system consists of three elements, each available in blue, black, and white:</p>
+      <ul style="margin: 12px 0 16px 20px; display: flex; flex-direction: column; gap: 6px;">
+        <li style="font-size: 15px; color: #333;">Logo</li>
+        <li style="font-size: 15px; color: #333;">Wordmark</li>
+        <li style="font-size: 15px; color: #333;">Logo + Wordmark</li>
+      </ul>
+      <p style="font-size: 14px; color: #555; margin-bottom: 8px;"><a href="https://app.shade.inc/publish/16e34ba5-3929-4caf-8086-95c5b36a539a" target="_blank" style="color: var(--blue); font-weight: 600;">Download all brand assets</a></p>
+      <div class="logo-rule" style="margin-bottom: 40px; margin-top: 24px;">
+        ⚠️ All external partners must consult with Novig to determine the appropriate logo, wordmark, or combination for their specific use case before publishing.
+      </div>
+
+      <p style="font-weight: 700; font-size: 14px; margin-bottom: 16px; color: #000;">Logo Mark</p>
+      <div class="logo-grid">
+        <div class="logo-card light">
+          <div class="logo-placeholder"><img src="assets/logo/logo-blue.png" alt="Novig Blue Logo" style="max-height:100px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label">Blue</div>
+        </div>
+        <div class="logo-card light">
+          <div class="logo-placeholder"><img src="assets/logo/logo-black.png" alt="Novig Black Logo" style="max-height:100px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label">Black</div>
+        </div>
+        <div class="logo-card dark">
+          <div class="logo-placeholder"><img src="assets/logo/logo-white.png" alt="Novig White Logo" style="max-height:100px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label" style="color:#555;">White</div>
+        </div>
+      </div>
+
+      <p style="font-weight: 700; font-size: 14px; margin-bottom: 16px; color: #000;">Logo + Wordmark</p>
+      <div class="logo-grid">
+        <div class="logo-card light">
+          <div class="logo-placeholder"><img src="assets/logo-wordmark/logo-wordmark-blue.png" alt="Novig Blue Logo+Wordmark" style="max-height:80px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label">Blue</div>
+        </div>
+        <div class="logo-card light">
+          <div class="logo-placeholder"><img src="assets/logo-wordmark/logo-wordmark-black.png" alt="Novig Black Logo+Wordmark" style="max-height:80px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label">Black</div>
+        </div>
+        <div class="logo-card dark">
+          <div class="logo-placeholder"><img src="assets/logo-wordmark/logo-wordmark-white.png" alt="Novig White Logo+Wordmark" style="max-height:80px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label" style="color:#555;">White</div>
+        </div>
+      </div>
+
+      <p style="font-weight: 700; font-size: 14px; margin-bottom: 16px; color: #000;">Wordmark Only</p>
+      <div class="logo-grid">
+        <div class="logo-card light">
+          <div class="logo-placeholder"><img src="assets/wordmark/wordmark-blue.png" alt="Novig Blue Wordmark" style="max-height:60px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label">Blue</div>
+        </div>
+        <div class="logo-card light">
+          <div class="logo-placeholder"><img src="assets/wordmark/wordmark-black.png" alt="Novig Black Wordmark" style="max-height:60px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label">Black</div>
+        </div>
+        <div class="logo-card dark">
+          <div class="logo-placeholder"><img src="assets/wordmark/wordmark-white.png" alt="Novig White Wordmark" style="max-height:60px; max-width:100%; object-fit:contain;"/></div>
+          <div class="logo-card-label" style="color:#555;">White</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colors -->
+    <section id="colors">
+      <div class="section-label">04 — Colors</div>
+      <h2>Brand Colors</h2>
+      <p>Novig's color palette is intentionally minimal. Use only these approved colors in all branded communications.</p>
+      <div class="color-row">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #179BE7;"></div>
+          <div class="color-info">
+            <div class="color-name">Brand Blue</div>
+            <div class="color-hex">#179BE7</div>
+            <div class="color-rgb">rgb(23, 155, 231)</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #000000;"></div>
+          <div class="color-info">
+            <div class="color-name">Black</div>
+            <div class="color-hex">#000000</div>
+            <div class="color-rgb">rgb(0, 0, 0)</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #FFFFFF; border-bottom: 1px solid var(--gray-200);"></div>
+          <div class="color-info">
+            <div class="color-name">White</div>
+            <div class="color-hex">#FFFFFF</div>
+            <div class="color-rgb">rgb(255, 255, 255)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Overlays -->
+    <section id="overlays">
+      <div class="section-label">05 — Video Overlays</div>
+      <h2>Video Overlays</h2>
+      <p>Branded overlay assets are provided for use in video content. Available in 9×16 and 16×9 formats.</p>
+
+      <div class="logo-rule" style="margin-bottom: 32px; margin-top: 24px;">
+        🎨 The Novig watermark should always remain <strong>completely white</strong>. If the white watermark is not appearing cleanly against your content, please consult the Novig marketing team before publishing.
+      </div>
+
+      <p style="font-weight: 700; font-size: 18px; margin-bottom: 8px; color: #000; letter-spacing: -0.01em;">Preferred Placement — Upper Right</p>
+      <p style="font-size: 15px; color: #444; margin-bottom: 32px; max-width: 600px; line-height: 1.7;">The upper right corner is the standard placement for all Novig-branded video content across both formats. The examples below show correct watermark placement in real content.</p>
+
+      <div style="display: flex; gap: 40px; flex-wrap: wrap; margin-bottom: 48px; align-items: flex-start;">
+
+        <!-- 9x16 vertical reference -->
+        <div>
+          <p style="font-size: 12px; font-weight: 600; color: var(--blue); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;">9×16 — Vertical</p>
+          <div style="position: relative; display: inline-block; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.15);">
+            <img src="assets/overlays/reference_1.jpg" alt="9x16 watermark placement example" style="width: 220px; display: block;"/>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; margin-top: 10px;">
+            <span style="color: var(--blue); font-size: 16px;">✓</span>
+            <span style="font-size: 13px; font-weight: 600; color: var(--blue);">Correct — upper right, fully white</span>
+          </div>
+        </div>
+
+        <!-- 16x9 horizontal reference -->
+        <div>
+          <p style="font-size: 12px; font-weight: 600; color: var(--blue); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;">16×9 — Horizontal</p>
+          <div style="position: relative; display: inline-block; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.15);">
+            <img src="assets/overlays/reference_2.jpg" alt="16x9 watermark placement example" style="width: 420px; display: block;"/>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; margin-top: 10px;">
+            <span style="color: var(--blue); font-size: 16px;">✓</span>
+            <span style="font-size: 13px; font-weight: 600; color: var(--blue);">Correct — upper right, fully white</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Safe Zone Section -->
+      <div style="margin-top: 56px;">
+        <p style="font-weight: 700; font-size: 20px; color: #000; margin-bottom: 8px; letter-spacing: -0.01em;">Platform Safe Zones</p>
+        <p style="font-size: 15px; color: #333; max-width: 640px; line-height: 1.7; margin-bottom: 32px;">The Novig watermark must always be placed within the platform's safe zone. This is based on each platform. Below is the safe area and a downloadable JSX file to import and ensure that you're within the safe zone.</p>
+
+        <div class="logo-rule" style="margin-bottom: 40px;">
+          ⚠️ <strong>TikTok note:</strong> TikTok has two phases — Ph1 (open screen, first 3s) and Ph2 (in-feed after 3s). Always use <strong>Ph2 for logo placement</strong> as it is the more restrictive safe zone.
+        </div>
+
+        <!-- Vertical Format Table -->
+        <p style="font-weight: 700; font-size: 14px; color: #000; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px;">Vertical Format — 1080 × 1920 px (9:16)</p>
+        <div class="sz-table-wrap">
+          <table class="sz-table">
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Overlay Color</th>
+                <th>Top</th>
+                <th>Bottom</th>
+                <th>Left</th>
+                <th>Right</th>
+                <th>Safe Area</th>
+                <th>JSX File</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>TikTok TopView</strong></td>
+                <td><span class="sz-swatch" style="background:#3C3C3C;"></span> #3C3C3C</td>
+                <td>Ph1: 240px<br/>Ph2: 240px</td>
+                <td>Ph1: 240px<br/>Ph2: 660px</td>
+                <td>120px</td>
+                <td>Ph1: 120px<br/>Ph2: 300px</td>
+                <td>Ph1: 840×1440px<br/>Ph2: 660×1020px</td>
+                <td><a href="safezones/safezone_tiktok.jsx" download class="sz-dl">↓ safezone_tiktok.jsx</a></td>
+              </tr>
+              <tr>
+                <td><strong>Instagram Reels</strong></td>
+                <td><span class="sz-swatch" style="background:#FF4FA0;"></span> #FF4FA0</td>
+                <td>269px (14%)</td>
+                <td>672px (35%) + Disclaimer: 768px (40%)</td>
+                <td>65px (6%)</td>
+                <td>65px (6%) + Eng. col: 227px</td>
+                <td>Polygon 788×979px upper + 788×96px lower strip</td>
+                <td><a href="safezones/safezone_instagram.jsx" download class="sz-dl">↓ safezone_instagram.jsx</a></td>
+              </tr>
+              <tr>
+                <td><strong>YouTube Shorts</strong></td>
+                <td><span class="sz-swatch" style="background:#FF2D2D;"></span> #FF2D2D</td>
+                <td>288px</td>
+                <td>672px</td>
+                <td>48px</td>
+                <td>192px</td>
+                <td>840×960px</td>
+                <td><a href="safezones/safezone_youtube_shorts.jsx" download class="sz-dl">↓ safezone_youtube_shorts.jsx</a></td>
+              </tr>
+              <tr>
+                <td><strong>Snapchat</strong></td>
+                <td><span class="sz-swatch" style="background:#FFD400;"></span> #FFD400</td>
+                <td>150px</td>
+                <td>150px</td>
+                <td>60px</td>
+                <td>60px</td>
+                <td>960×1620px</td>
+                <td><a href="safezones/safezone_snapchat.jsx" download class="sz-dl">↓ safezone_snapchat.jsx</a></td>
+              </tr>
+              <tr>
+                <td><strong>Facebook Reels</strong></td>
+                <td><span class="sz-swatch" style="background:#1877F2;"></span> #1877F2</td>
+                <td>269px (14%)</td>
+                <td>672px (35%) + Disclaimer: 768px (40%)</td>
+                <td>65px (6%)</td>
+                <td>65px (6%) + Eng. col: 227px</td>
+                <td>Polygon 788×979px upper + 788×96px lower strip</td>
+                <td><a href="safezones/safezone_facebook.jsx" download class="sz-dl">↓ safezone_facebook.jsx</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Horizontal Format Table -->
+        <p style="font-weight: 700; font-size: 12px; color: #000; margin-bottom: 16px; margin-top: 40px; text-transform: uppercase; letter-spacing: 0.06em;">Horizontal Format — 1920 × 1080 px (16:9)</p>
+        <div class="sz-table-wrap" style="margin-bottom: 40px;">
+          <table class="sz-table">
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Overlay Color</th>
+                <th>Top</th>
+                <th>Bottom</th>
+                <th>Left</th>
+                <th>Right</th>
+                <th>Safe Area</th>
+                <th>JSX File</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>YouTube Horiz. Video Ads</strong></td>
+                <td><span class="sz-swatch" style="background:#FF2D2D;"></span> #FF2D2D</td>
+                <td>38px*</td>
+                <td>387px</td>
+                <td>38px*</td>
+                <td>162px*</td>
+                <td>Irregular polygon*</td>
+                <td><a href="safezones/safezone_youtube_horizontal.jsx" download class="sz-dl">↓ safezone_youtube_horizontal.jsx</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PDF Download -->
+        <p style="font-weight: 700; font-size: 14px; color: #000; margin-bottom: 12px;">Full Reference Guide</p>
+        <p style="font-size: 13px; color: #666; margin-bottom: 16px;">Download the complete Platform Safe Zone Reference for exact pixel values across all platforms.</p>
+        <a href="safezones/novig_safezone_reference.pdf" download class="btn btn-blue" style="display: inline-flex;">↓ Download Safe Zone Reference PDF</a>
+      </div>
+
+    </section>
+
+    <!-- Typography -->
+    <section id="typography">
+      <div class="section-label">06 — Typography</div>
+      <h2>Typography</h2>
+      <p>Novig's brand typeface is <strong>ABC Monument Grotesk</strong> — a modern, rounded sans-serif used across all brand communications.</p>
+      <div class="type-showcase">
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-weight-label">Bold</div>
+            <div class="type-usage">Headlines</div>
+          </div>
+          <div class="type-sample-bold">The exchange.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-weight-label">Medium</div>
+            <div class="type-usage">Subheadings</div>
+          </div>
+          <div class="type-sample-medium">Fair odds. No limits.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-weight-label">Regular</div>
+            <div class="type-usage">Body copy</div>
+          </div>
+          <div class="type-sample-regular">Trade directly with other players.</div>
+        </div>
+      </div>
+
+      <!-- Font Downloads -->
+      <div style="margin-top: 40px;">
+        <p style="font-size: 12px; font-weight: 700; color: #000; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em;">Download Font Files</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="fonts/ABC Monument Grotesk Regular.woff" download="ABC Monument Grotesk Regular.woff" class="btn btn-outline-dark" style="display:inline-flex; align-items:center; gap:8px; font-size:13px; padding: 10px 18px; font-weight:400;">
+            ↓ ABC Monument Grotesk — Regular
+          </a>
+          <a href="fonts/ABC Monument Grotesk Medium.woff" download="ABC Monument Grotesk Medium.woff" class="btn btn-outline-dark" style="display:inline-flex; align-items:center; gap:8px; font-size:13px; padding: 10px 18px; font-weight:500;">
+            ↓ ABC Monument Grotesk — Medium
+          </a>
+          <a href="fonts/ABC Monument Grotesk Bold.woff" download="ABC Monument Grotesk Bold.woff" class="btn btn-outline-dark" style="display:inline-flex; align-items:center; gap:8px; font-size:13px; padding: 10px 18px; font-weight:700;">
+            ↓ ABC Monument Grotesk — Bold
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Language & Terminology -->
+    <section id="language">
+      <div class="section-label">07 — Language</div>
+      <h2>Language & Terminology</h2>
+      <p>Novig operates as a sweepstakes. All external partners must use the following approved terminology in any public-facing communications. This applies to social media, advertising, press, and all promotional materials.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>❌ Do Not Use</th>
+            <th>✅ Use Instead</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="dont">Deposit</span></td>
+            <td><span class="do">Purchase</span></td>
+          </tr>
+          <tr>
+            <td><span class="dont">Bet / Wager</span></td>
+            <td><span class="do">Play / Trade</span></td>
+          </tr>
+          <tr>
+            <td><span class="dont">Withdraw / Withdrawals</span></td>
+            <td><span class="do">Redeem / Redemptions</span></td>
+          </tr>
+          <tr>
+            <td><span class="dont">Bettors / Patrons</span></td>
+            <td><span class="do">Players / Users / Participants</span></td>
+          </tr>
+          <tr>
+            <td><span class="dont">Responsible Gaming</span></td>
+            <td><span class="do">Responsible Gameplay</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Brand Tone -->
+    <section id="tone">
+      <div class="section-label">08 — Brand Tone</div>
+      <h2>Brand Tone Guide</h2>
+      <p style="font-size: 15px; color: #444; max-width: 640px; line-height: 1.7; margin-bottom: 48px;">How Novig sounds across every touchpoint. These five principles define our voice — use them as a guide for any public-facing communication.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 2px; max-width: 820px;">
+
+        <!-- 1. Edgy -->
+        <div style="background: #f7f7f7; border-radius: 14px; padding: 32px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 32px; height: 32px; background: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;">1</div>
+            <div style="font-size: 19px; font-weight: 700; color: #000;">Edgy</div>
+          </div>
+          <p style="font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 20px;">We're not afraid to say what everyone in sports betting already knows but won't say out loud: the house has been rigging the game. Novig calls it out — directly, confidently, and without pulling punches. Our tone has an edge because we're building something that genuinely disrupts a broken system.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #22a05a; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✓ Do</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Challenge the status quo. Take a stance. Name the problem plainly.</div>
+            </div>
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #e05555; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✗ Don't</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Be mean-spirited, punch down, or be edgy for its own sake. The edge comes from truth, not attitude.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Welcoming -->
+        <div style="background: #f7f7f7; border-radius: 14px; padding: 32px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 32px; height: 32px; background: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;">2</div>
+            <div style="font-size: 19px; font-weight: 700; color: #000;">Welcoming</div>
+          </div>
+          <p style="font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 20px;">Sharp doesn't mean cold. We want every bettor — from the seasoned sharp to someone placing their first bet — to feel like Novig is on their side. The tone is warm and inclusive, never gatekeeping or condescending.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #22a05a; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✓ Do</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Invite people in. Make them feel smart for choosing Novig. Explain, don't lecture.</div>
+            </div>
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #e05555; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✗ Don't</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Assume knowledge, use jargon without context, or make casual bettors feel like outsiders.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Make the Complex Accessible -->
+        <div style="background: #f7f7f7; border-radius: 14px; padding: 32px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 32px; height: 32px; background: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;">3</div>
+            <div style="font-size: 19px; font-weight: 700; color: #000;">Make the Complex Accessible</div>
+          </div>
+          <p style="font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 20px;">The exchange model, vig, juice, market efficiency — these concepts are genuinely important and genuinely confusing. Our job is to make them feel obvious, not overwhelming. We don't dumb things down; we light them up.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #22a05a; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✓ Do</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Use analogies, plain language, and concrete examples. Trust readers to follow along when you lead clearly.</div>
+            </div>
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #e05555; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✗ Don't</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Oversimplify to the point of losing accuracy, or overcomplicate to the point of losing people.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. The Smarter Alternative -->
+        <div style="background: #f7f7f7; border-radius: 14px; padding: 32px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 32px; height: 32px; background: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;">4</div>
+            <div style="font-size: 19px; font-weight: 700; color: #000;">The Smarter Alternative</div>
+          </div>
+          <p style="font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 20px;">Novig earns its place not by shouting louder, but by being right. The tone is confident and grounded — we let the math and the model do the talking. We're the choice for people who've done the homework.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #22a05a; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✓ Do</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Lead with evidence. Be specific about advantages (lower fees, better prices, transparency). Let the product speak.</div>
+            </div>
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #e05555; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✗ Don't</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Over-claim, rely on hype, or make vague "better" statements without backing them up.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Open Doors -->
+        <div style="background: #f7f7f7; border-radius: 14px; padding: 32px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 32px; height: 32px; background: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;">5</div>
+            <div style="font-size: 19px; font-weight: 700; color: #000;">Open Doors</div>
+          </div>
+          <p style="font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 20px;">Sports trading is for everyone. If you care about the game and want a better way to bet on it, you're exactly who we're building for. We don't care where you're from, how long you've been doing this, or what your bankroll looks like — if you want in, you're in. Our tone reflects that openness: no velvet rope, no insider handshake, just a better product that works for anyone willing to use it.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #22a05a; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✓ Do</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Write like you're talking to anyone and everyone. Make people feel like they arrived at the right place.</div>
+            </div>
+            <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 10px; padding: 16px;">
+              <div style="font-size: 11px; font-weight: 700; color: #e05555; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">✗ Don't</div>
+              <div style="font-size: 13px; color: #333; line-height: 1.6;">Signal exclusivity, assume a particular kind of fan or bettor, or make the brand feel like a club with membership requirements.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- The Novig Advantage -->
+    <section id="advantage">
+      <div class="section-label">09 — The Novig Advantage</div>
+      <h2>The Novig Advantage</h2>
+      <p style="font-size: 15px; color: #444; max-width: 600px; line-height: 1.7; margin-bottom: 40px;">Built for sports fans. By sports fans.</p>
+
+      <div style="background: #0a0a0a; border-radius: 16px; overflow: hidden; max-width: 820px;">
+
+        <!-- Table header -->
+        <div style="display: grid; grid-template-columns: 2fr 2fr 2fr; border-bottom: 1px solid #222;">
+          <div style="padding: 16px 24px; font-size: 11px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.1em;">Feature</div>
+          <div style="padding: 16px 24px; font-size: 11px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.1em;">Traditional Sportsbooks</div>
+          <div style="padding: 16px 24px; font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em; background: rgba(23,155,231,0.08); border-left: 2px solid var(--blue);">Novig</div>
+        </div>
+
+        <!-- Row 1 -->
+        <div style="display: grid; grid-template-columns: 2fr 2fr 2fr; border-bottom: 1px solid #1a1a1a;">
+          <div style="padding: 18px 24px; font-size: 13px; font-weight: 600; color: #ccc;">Commission / Vig</div>
+          <div style="padding: 18px 24px; font-size: 13px; color: #e05555; font-weight: 500;">5–10% per bet</div>
+          <div style="padding: 18px 24px; font-size: 13px; color: #fff; font-weight: 600; background: rgba(23,155,231,0.05); border-left: 2px solid var(--blue);">0%</div>
+        </div>
+
+        <!-- Row 2 -->
+        <div style="display: grid; grid-template-columns: 2fr 2fr 2fr; border-bottom: 1px solid #1a1a1a;">
+          <div style="padding: 18px 24px; font-size: 13px; font-weight: 600; color: #ccc;">Winner Bans</div>
+          <div style="padding: 18px 24px; font-size: 13px; color: #e05555; font-weight: 500;">Yes — routine</div>
+          <div style="padding: 18px 24px; font-size: 13px; color: #fff; font-weight: 600; background: rgba(23,155,231,0.05); border-left: 2px solid var(--blue);">Never</div>
+        </div>
+
+        <!-- Row 3 -->
+        <div style="display: grid; grid-template-columns: 2fr 2fr 2fr; border-bottom: 1px solid #1a1a1a;">
+          <div style="padding: 18px 24px; font-size: 13px; font-weight: 600; color: #ccc;">Pricing Transparency</div>
+          <div style="padding: 18px 24px; font-size: 13px; color: #666;">None</div>
+          <div style="padding: 18px 24px; font-size: 13px; color: #fff; font-weight: 600; background: rgba(23,155,231,0.05); border-left: 2px solid var(--blue);">Full order book</div>
+        </div>
+
+        <!-- Row 4 -->
+        <div style="display: grid; grid-template-columns: 2fr 2fr 2fr;">
+          <div style="padding: 18px 24px; font-size: 13px; font-weight: 600; color: #ccc;">Market Structure</div>
+          <div style="padding: 18px 24px; font-size: 13px; color: #666;">House vs. Bettor</div>
+          <div style="padding: 18px 24px; font-size: 13px; color: #fff; font-weight: 600; background: rgba(23,155,231,0.05); border-left: 2px solid var(--blue);">Peer-to-Peer</div>
+        </div>
+
+      </div>
+
+      <!-- Talking Points -->
+      <div style="margin-top: 48px; max-width: 820px;">
+        <p style="font-size: 12px; font-weight: 700; color: #000; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px;">Talking Points</p>
+
+        <div class="tp-group">
+          <div class="tp-group-label">Why Novig</div>
+          <div class="tp-list">
+            <div class="tp-item"><span class="tp-dot"></span>No hidden fees.</div>
+            <div class="tp-item"><span class="tp-dot"></span>You're 10x more likely to win on Novig in the long run compared to traditional sportsbooks.</div>
+            <div class="tp-item"><span class="tp-dot"></span>The best odds: compare Novig to the competition and you'll see a marketplace with the best odds.</div>
+            <div class="tp-item"><span class="tp-dot"></span>Total transparency: the odds you see are the odds you get, set by the market, not by a casino trying to take a cut.</div>
+          </div>
+        </div>
+
+        <div class="tp-group tp-group-dark" style="margin-top: 16px;">
+          <div class="tp-group-label" style="color: var(--blue);">Positioning vs. Sportsbooks</div>
+          <div class="tp-list">
+            <div class="tp-item tp-item-dark"><span class="tp-dot" style="background: var(--blue);"></span>Sports betting is broken by design.</div>
+            <div class="tp-item tp-item-dark"><span class="tp-dot" style="background: var(--blue);"></span>Sportsbooks have hidden fees and limit or ban winners.</div>
+            <div class="tp-item tp-item-dark"><span class="tp-dot" style="background: var(--blue);"></span>Novig is built on <strong>Transparency</strong> · <strong>Efficiency</strong> · <strong>Fairness</strong></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Types of Trades -->
+    <section id="trades">
+      <div class="section-label">10 — Types of Trades</div>
+      <h2>Types of Trades</h2>
+      <p>Novig supports the following trade types. Use these terms consistently when referencing Novig's product offering in any public-facing communications.</p>
+      <div class="trades-grid">
+        <div class="trade-card">
+          <div class="trade-number">01</div>
+          <div class="trade-name">Straights</div>
+          <div class="trade-desc">A single trade on one outcome — the most straightforward way to play on Novig.</div>
+        </div>
+        <div class="trade-card">
+          <div class="trade-number">02</div>
+          <div class="trade-name">Player Props</div>
+          <div class="trade-desc">Trade on individual player performance metrics within a game.</div>
+        </div>
+        <div class="trade-card">
+          <div class="trade-number">03</div>
+          <div class="trade-name">Parlays</div>
+          <div class="trade-desc">Combine multiple trades into one — all selections must win for the parlay to pay out.</div>
+        </div>
+        <div class="trade-card">
+          <div class="trade-number">04</div>
+          <div class="trade-name">Futures</div>
+          <div class="trade-desc">Trade on long-term outcomes like season champions, award winners, and more.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two-Sided Marketplace -->
+    <section id="marketplace">
+      <div class="section-label">11 — Two-Sided Marketplace</div>
+      <h2>The Two-Sided Marketplace</h2>
+      <p>Novig operates as a true two-sided market — giving users the freedom to find the best available odds or create their own.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px;">
+
+        <div style="display: flex; gap: 20px; align-items: flex-start; background: #f7f7f7; border-radius: 12px; padding: 24px;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-weight: 700; font-size: 15px; color: #000; margin-bottom: 6px;">Find the best odds or offer your own</div>
+            <div style="font-size: 14px; color: #444; line-height: 1.6;">Browse the live market to take an existing offer — or set your own terms and wait for another user to accept.</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 20px; align-items: flex-start; background: #f7f7f7; border-radius: 12px; padding: 24px;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: #fff; font-family: 'ABCMonumentGrotesk', sans-serif;">T</div>
+          <div>
+            <div style="font-weight: 700; font-size: 15px; color: #000; margin-bottom: 6px;">The Take</div>
+            <div style="font-size: 14px; color: #444; line-height: 1.6;">Accepting an offer someone has already proposed. Quick, straightforward, and ready to go.</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 20px; align-items: flex-start; background: #f7f7f7; border-radius: 12px; padding: 24px;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: #fff; font-family: 'ABCMonumentGrotesk', sans-serif;">M</div>
+          <div>
+            <div style="font-weight: 700; font-size: 15px; color: #000; margin-bottom: 6px;">The Make Side</div>
+            <div style="font-size: 14px; color: #444; line-height: 1.6;">You set the odds and price for another Novig user to accept. Name your terms, put them in the market, and wait for a match.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Novig Coins & Cash -->
+    <section id="coins">
+      <div class="section-label">12 — Novig Coins & Cash</div>
+      <h2>Novig Coins & Cash</h2>
+
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 32px; max-width: 720px;">
+
+        <div style="flex: 1; min-width: 260px; background: #f7f7f7; border-radius: 14px; padding: 28px;">
+          <div style="font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Novig Coins</div>
+          <div style="font-size: 18px; font-weight: 700; color: #000; margin-bottom: 12px;">Play for free</div>
+          <div style="font-size: 14px; color: #444; line-height: 1.7;">Trade Novig Coins for free — play for fun and hone your trading strategies with no risk.</div>
+        </div>
+
+        <div style="flex: 1; min-width: 260px; background: #000; border-radius: 14px; padding: 28px;">
+          <div style="font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Novig Cash</div>
+          <div style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 12px;">Compete for real prizes</div>
+          <div style="font-size: 14px; color: #aaa; line-height: 1.7;">Trade Novig Cash to use your sports knowledge and compete for the chance to win real cash prizes.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Legal Disclaimers -->
+    <section id="legal">
+      <div class="section-label">13 — Legal</div>
+      <h2>Legal Disclaimers</h2>
+      <p>The following disclaimers are required on all Novig-branded content. Use the appropriate version based on the type of content being produced.</p>
+
+      <div class="legal-card">
+        <div class="legal-card-label">For all content</div>
+        <p class="legal-text">Must be 21+ to enter. Please play responsibly. Void where prohibited. No purchase necessary.</p>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-card-label">For content produced on behalf of Novig</div>
+        <p class="legal-text">This content is for educational and entertainment purposes only and does not constitute financial, investment, or legal advice. Betting and trading involve significant risk. Please act responsibly.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Force all external links to open in new tab
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener');
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section[id], div.hero');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        if (window.scrollY >= top) current = section.id || 'about';
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+
+    // Smooth scroll
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
