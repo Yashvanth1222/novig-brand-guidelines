@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+token.json
+credentials.json
+*.db
+node_modules/
+.next/
+venv/
