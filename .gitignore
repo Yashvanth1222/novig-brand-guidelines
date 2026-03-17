@@ -7,3 +7,4 @@ credentials.json
 node_modules/
 .next/
 venv/
+.vercel
