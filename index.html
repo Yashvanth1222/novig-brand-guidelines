@@ -695,9 +695,75 @@
       max-width: 100%;
       margin: 0;
     }
+    /* ── Password Gate ── */
+    #password-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+    }
+    #password-gate.hidden { display: none; }
+    #password-gate .gate-logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+    }
+    #password-gate .gate-subtitle {
+      font-size: 13px;
+      color: var(--gray-500);
+      letter-spacing: 0.04em;
+    }
+    #password-gate input {
+      width: 280px;
+      padding: 12px 16px;
+      border: 1px solid #333;
+      border-radius: 6px;
+      background: #111;
+      color: var(--white);
+      font-family: 'ABCMonumentGrotesk', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    #password-gate input:focus { border-color: var(--blue); }
+    #password-gate input.error { border-color: #e74c3c; }
+    #password-gate button {
+      width: 280px;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 6px;
+      background: var(--blue);
+      color: var(--white);
+      font-family: 'ABCMonumentGrotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    #password-gate button:hover { opacity: 0.9; }
+    #password-gate .gate-error {
+      font-size: 12px;
+      color: #e74c3c;
+      height: 16px;
+    }
+    .content-hidden { overflow: hidden !important; height: 100vh !important; }
   </style>
 </head>
-<body>
+<body class="content-hidden">
+
+<div id="password-gate">
+  <div class="gate-logo">NOVIG</div>
+  <div class="gate-subtitle">Brand Guidelines</div>
+  <input type="password" id="gate-input" placeholder="Enter password" autocomplete="off" />
+  <div class="gate-error" id="gate-error"></div>
+  <button id="gate-btn">Enter</button>
+</div>
 
   <!-- Sidebar Navigation -->
   <nav>
@@ -1638,6 +1704,36 @@
         if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // Password gate
+    const PASS_HASH = '5a5b0f9b7e3d1c8f2a4e6d8c0b3a5f7e9d1c3b5a7f0e2d4c6b8a0f3e5d7c9b';
+    (function() {
+      const gate = document.getElementById('password-gate');
+      const input = document.getElementById('gate-input');
+      const btn = document.getElementById('gate-btn');
+      const err = document.getElementById('gate-error');
+
+      if (sessionStorage.getItem('novig-auth') === 'true') {
+        gate.classList.add('hidden');
+        document.body.classList.remove('content-hidden');
+        return;
+      }
+
+      function tryPassword() {
+        if (input.value === 'novig2026!') {
+          sessionStorage.setItem('novig-auth', 'true');
+          gate.classList.add('hidden');
+          document.body.classList.remove('content-hidden');
+        } else {
+          input.classList.add('error');
+          err.textContent = 'Incorrect password';
+          setTimeout(() => { input.classList.remove('error'); err.textContent = ''; }, 2000);
+        }
+      }
+
+      btn.addEventListener('click', tryPassword);
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') tryPassword(); });
+    })();
   </script>
 
 </body>
